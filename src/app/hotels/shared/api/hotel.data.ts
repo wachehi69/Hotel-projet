@@ -12,7 +12,8 @@ export class HotelData implements InMemoryDbService {
             description: "Belle vue au bord de la mer",
             price: 230.5,
             imageUrl : "assets/img/hotel-room.jpg",
-            rating: 3.5      
+            rating: 3.5,
+            tags: ['nouveau']      
           },
           {
            id:2,
@@ -20,7 +21,8 @@ export class HotelData implements InMemoryDbService {
            description: "Profiter de la vue sur les montagnes",
            price: 145.5,
            imageUrl : "assets/img/the-interior.jpg",
-           rating: 5
+           rating: 5,
+           tags: ['nouveau']
          },
          {
             id:3,
@@ -28,8 +30,8 @@ export class HotelData implements InMemoryDbService {
            description: "Profiter de la vue sur les montagnes",
            price: 145.5,
            imageUrl : "assets/img/indoors.jpg",
-           rating: 4.5
-         
+           rating: 4.5,
+           tags: ['nouveau']         
          },
          {
            id:4,
@@ -37,7 +39,8 @@ export class HotelData implements InMemoryDbService {
            description: "Profiter de la vue sur les montagnes",
            price: 145.5,
            imageUrl : "assets/img/window.jpg",
-           rating: 3.5
+           rating: 3.5,
+           tags: ['nouveau']
          }
 
      ];

@@ -46,23 +46,29 @@ export class hotelListService {
     }
 
     public updateHotel(hotel: IHotel): Observable<IHotel> {
-      const url = `${this.HOTEL_API_URL}/${hotel.id}`
+      const url = `${this.HOTEL_API_URL}/${hotel.id}222`
       return this.http.put<IHotel>(url, hotel).pipe(
        catchError(this.handleError)
       );
     }
 
     public createHotel(hotel : IHotel): Observable<IHotel> {
-
       hotel = {
         ...hotel,
         imageUrl: 'assets/img/hotel-room.jpg',
-        id: 0    
+        id: 5   
       }
       const url = `${this.HOTEL_API_URL}`;
      return this.http.post<IHotel>(url, hotel).pipe(
        catchError(this.handleError)
      );
+    }
+
+    public deleteHotel(id: number) : Observable<{}> {
+      const url = `${this.HOTEL_API_URL}/${id}`;
+      return this.http.delete<IHotel>(url).pipe(
+        catchError(this.handleError)
+      );
     }
 
 
@@ -78,8 +84,8 @@ export class hotelListService {
         // The response body may contain clues as to what went wrong
         console.error(
           `Backend returned code ${error.status}, `+
-          `body was: ${error.error.message} `
-        );
+          `body was: ${error.error.message} `   );
+          
         errorMessage = `Backend returned code ${error.status}, `+
                         `body was: ${error.error.message} `;    
       }    

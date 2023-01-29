@@ -1,5 +1,14 @@
+<ng-container *ngIf="errorMessage">
+  <div class="alert alert-danger d-flex align-items-center">
+    <span class="material-icons mr-2">error</span>
+    {{ errorMessage }}
+    <span class="material-icons ml-auto btn" (click)="hideError()">close</span>
+ </div>
+</ng-container>
 <div class="card">
    <div class="card-header text-white bg-info">{{ pageTitle }}</div>
+
+
  <div class="card-body">
     <form  novalidate  (ngSubmit)="saveHotel()"  [formGroup]="hotelForm">
      <div class="form-group row mb-3">
@@ -35,6 +44,32 @@
          placeholder="Evaluation(1-5)">
         </div>
       </div>
+      <div formArrayName="tags">
+        <div class="form-group row mb-2" *ngFor="let tag of tags.controls; let i=index">
+          <label [attr.for]="i" class="col-md-2 col-from-label">
+           {{'Etiquette' + i}} 
+          </label>
+          <div class="col-md-8">
+           <input 
+           type="text"
+           [id]="i"
+            class="form-control"
+            placeholder=" {{'Etiquette' + i}} "
+            [formControlName]="i"
+            />
+   
+          </div>
+           <button type="button" class="col-md-2  btn btn-outline-danger btn-sm" (click)="deleteTag(i)">Supprimer </button>
+         </div>
+          <div class="row">
+           <div class="col-md-2 mb-2">
+             <button class="btn btn-outline-primary btn-sm"
+              (click)="addTags()"
+             >
+             Ajouter une étiquette</button>
+           </div>
+          </div>
+         </div>      
       <div class="form-group row mb-3">
         <label for="descriptionId" class="col-md-2 col-form-label">Description</label>
         <div class="col-md-8">
@@ -49,7 +84,14 @@
         <div class="offset-md-2 col-md-3">
          <button class="btn btn-info mr-3" type="submit">Sauvegarder</button>
          <button class="btn btn-outline-secondary mr-3" type="button"  routerLink="/hotels">Annuler</button>
-         <button class="btn btn-outline-danger mr-3" type="button">Supprimer</button>
+         <button 
+             class="btn btn-outline-danger mr-3"
+              type="button" 
+              (click)="deleteHotel()"
+            
+              >
+              Supprimer
+            </button>
         </div>
      </div>
     </form>

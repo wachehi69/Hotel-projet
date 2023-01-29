@@ -17,7 +17,7 @@ export class hotelListComponent implements OnInit{
   }
   
   public title = 'liste hotels';
-  public showBadge: boolean = false;
+  public showBadge: boolean = true;
   public receiveRating!: string;
   public errMessage!: string;
 

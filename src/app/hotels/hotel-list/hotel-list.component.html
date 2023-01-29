@@ -55,7 +55,13 @@
               keyboard_arrow_right
             </span>
           </div>
-          <span class="badge bg-pill bg-info" *ngIf="showBadge"> Nouveau</span>
+          <ng-container *ngFor="let tag of hotel.tags">
+             <ng-container *ngIf="showBadge">
+               <span class="badge bg-pill bg-info" > 
+                 {{ tag }}  
+               </span>
+             </ng-container>
+          </ng-container>
         </div>
       </div>
     </div>
